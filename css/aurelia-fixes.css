@@ -1,0 +1,82 @@
+/* Distribute the three target items within the existing desktop grid height. */
+@media (min-width:768px) {
+  .aurelia-page .persona-section .persona dl {
+    align-self:stretch;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+  }
+}
+
+/* Only the target section: retain its natural content height and reduce bottom padding. */
+.aurelia-page .persona-section {
+  padding-bottom:32px;
+}
+@media (max-width:1200px) {
+  .aurelia-page .persona-section {
+    padding-bottom:24px;
+  }
+}
+
+/* Slightly tighten desktop item spacing without moving the profile. */
+@media (min-width:1201px) {
+  .aurelia-page .persona-section .persona dl {
+    padding-bottom:24px;
+  }
+}
+
+/* Exported POINT images include their own annotation lines. */
+.aurelia-page .point-note::before,
+.aurelia-page .point-note::after { content:none; }
+.aurelia-page .annotated-preview img {
+  display:block; width:100%; height:auto; max-height:none;
+}
+.aurelia-page .annotated-fv { width:100%; justify-self:center; }
+.aurelia-page .annotated-ingredient { margin-top:28px; }
+@media (min-width:1201px) {
+  .aurelia-page .annotated-fv { margin-top:-70px; }
+}
+
+/* Limit only the combined palette diagram to its 1440px display width. */
+.aurelia-page .palette-diagram {
+  display:block;
+  width:100%;
+  max-width:308px;
+  height:auto;
+  margin-inline:auto;
+}
+@media (max-width:767px) {
+  .aurelia-page .palette-diagram { max-width:250px; }
+}
+
+.aurelia-page .ingredient-emphasis { color:#BF7D00; }
+
+.aurelia-page .annotated-preview picture { display:block; }
+/* Match the point-columns switch from side-by-side to stacked content. */
+@media (max-width:767px) {
+  .aurelia-page .annotated-fv { max-width:230px; margin-inline:auto; }
+}
+
+/* Pair each ingredient explanation with its image in the stacked layout only. */
+@media (max-width:767px) {
+  .aurelia-page .ingredient-pairs > .ingredient-copy,
+  .aurelia-page .ingredient-pairs > .point-image-stack { display:contents; }
+  .aurelia-page .ingredient-copy > p { margin:0; }
+  .aurelia-page .ingredient-copy > p:first-child { order:0; }
+  .aurelia-page .ingredient-pairs .annotated-feel { order:1; }
+  .aurelia-page .ingredient-copy > p:last-child { order:2; }
+  .aurelia-page .ingredient-pairs .annotated-ingredient { order:3; margin-top:0; }
+  .aurelia-page .ingredient-pairs .annotated-preview {
+    width:100%; max-width:270px; align-self:center;
+  }
+}
+
+/* Only the purchase CTA image in the stacked POINT layout. */
+@media (max-width:767px) {
+  .aurelia-page .point-columns > .point-cta-image {
+    width:100%;
+    max-width:280px;
+    height:auto;
+    margin-inline:auto;
+  }
+}

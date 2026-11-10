@@ -1,0 +1,21 @@
+/* Keep target copy directly below its heading, independent of profile height. */
+@media (min-width:768px) {
+  .tsumugi-page .target-persona .persona dl {
+    align-self:start;
+  }
+  .tsumugi-page .target-persona .persona figure {
+    transform:translateY(-45px);
+  }
+}
+
+/* Limit only the combined palette diagram to its 1440px display width. */
+.tsumugi-page .palette-diagram {
+  display:block;
+  width:100%;
+  max-width:308px;
+  height:auto;
+  margin-inline:auto;
+}
+@media (max-width:767px) {
+  .tsumugi-page .palette-diagram { max-width:250px; }
+}

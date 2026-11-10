@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'Caudex';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../assets/fonts/caudex-0.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Zen Kaku Gothic New';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../assets/fonts/zen-0.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Zen Kaku Gothic New';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../assets/fonts/zen-1.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Zen Kaku Gothic New';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../assets/fonts/zen-2.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Gothic A1';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../assets/fonts/gothic-0.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Gothic A1';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../assets/fonts/gothic-1.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Gothic A1';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(../assets/fonts/gothic-2.ttf) format('truetype');
+}

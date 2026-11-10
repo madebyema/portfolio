@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 -32 64 64" fill="none">
+  <defs>
+    <radialGradient id="halo">
+      <stop stop-color="#FFFFFF" stop-opacity=".95"/>
+      <stop offset=".22" stop-color="#BCE8F4" stop-opacity=".65"/>
+      <stop offset=".52" stop-color="#C9D9F5" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#D8C8FF" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="light">
+      <stop stop-color="#FFFFFF"/>
+      <stop offset=".18" stop-color="#FFFFFF"/>
+      <stop offset=".48" stop-color="#BCE8F4"/>
+      <stop offset=".76" stop-color="#C9D9F5" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#D8C8FF" stop-opacity=".45"/>
+    </radialGradient>
+    <linearGradient id="rim" x1="-20" y1="-28" x2="20" y2="28" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#BCE8F4"/><stop offset=".5" stop-color="#FFFFFF"/><stop offset="1" stop-color="#D8C8FF"/>
+    </linearGradient>
+    <filter id="soft" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="1.5"/></filter>
+    <path id="rays" d="M0-28C1.2-8 2.4-2.4 26 0 2.4 2.4 1.2 8 0 28-1.2 8-2.4 2.4-26 0-2.4-2.4-1.2-8 0-28Z"/>
+  </defs>
+  <circle r="31" fill="url(#halo)"/>
+  <use href="#rays" fill="url(#rim)" opacity=".85" filter="url(#soft)"/>
+  <use href="#rays" fill="url(#light)" stroke="#AFA6D0" stroke-opacity=".35" stroke-width=".65"/>
+  <path d="M0-23V23M-21 0H21" stroke="#FFFFFF" stroke-width=".7" opacity=".9"/>
+  <circle r="2.1" fill="#FFFFFF"/>
+</svg>

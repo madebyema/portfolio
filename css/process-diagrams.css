@@ -1,0 +1,22 @@
+/* Only the section-column connections on these two process pages. */
+:is(.tsumugi-page,.aurelia-page) .flow--connected { isolation:isolate; }
+:is(.tsumugi-page,.aurelia-page) .flow--connected .flow-section::after {
+  display:block;
+  left:50%; transform:translateX(-50%);
+  top:100%; height:var(--section-connection,0px);
+  z-index:-1; pointer-events:none;
+  mask-image:var(--section-connection-mask,none);
+}
+:is(.tsumugi-page,.aurelia-page) .flow--connected li:last-child .flow-section::after { display:none; }
+/* Keep the route label's layout; draw its connector from the EVENT bounds. */
+.direct-route__connector { display:none; }
+@media (min-width:768px) {
+  .tsumugi-page .direct-route--aligned {
+    border-top-color:transparent; border-right-color:transparent;
+  }
+  .tsumugi-page .direct-route--aligned::after { display:none; }
+  .tsumugi-page .direct-route__connector {
+    display:block; position:absolute; left:-3px; top:-3px;
+    overflow:visible; pointer-events:none; color:var(--accent);
+  }
+}
