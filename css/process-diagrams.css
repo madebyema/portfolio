@@ -28,3 +28,15 @@
     display:none;
   }
 }
+
+/* Each stacked connector occupies only one measured gap, never a card interior. */
+.flow-gap-connectors { display:none; }
+@media (max-width:767px) {
+  :is(.tsumugi-page,.aurelia-page) .flow--connected { position:relative; }
+  :is(.tsumugi-page,.aurelia-page) .flow--connected .flow-section::after { display:none; }
+  :is(.tsumugi-page,.aurelia-page) .flow-gap-connectors {
+    display:block; position:absolute; inset:0; width:100%; height:100%;
+    z-index:-1; pointer-events:none; overflow:hidden;
+    fill:none; stroke:var(--line); stroke-width:2; stroke-linecap:butt;
+  }
+}

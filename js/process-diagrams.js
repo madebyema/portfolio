@@ -20,6 +20,16 @@
     connector.append(routeLine, arrowhead);
     route.append(connector);
   }
+  const gapConnectors = new Map(flows.map(flow => {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.classList.add('flow-gap-connectors');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    svg.append(path);
+    flow.append(svg);
+    return [flow, { svg, path }];
+  }));
   let frame;
   const update = () => {
     frame = null;
@@ -57,6 +67,21 @@
         section.style.setProperty('--section-connection-mask', `linear-gradient(to bottom, ${stops.join(', ')})`);
       });
       flow.classList.add('flow--connected');
+      if (matchMedia('(max-width:767px)').matches) {
+        const { svg, path } = gapConnectors.get(flow);
+        const origin = flow.getBoundingClientRect();
+        const cards = [...flow.querySelectorAll('.flow-section, .flow-mind, .flow-action')]
+          .map(card => card.getBoundingClientRect());
+        svg.setAttribute('viewBox', `0 0 ${origin.width} ${origin.height}`);
+        // Separate subpaths end at the next card's top edge. No stroke passes
+        // behind a transparent card, and the final card has no outgoing line.
+        path.setAttribute('d', cards.slice(0, -1).map((card, index) => {
+          const next = cards[index + 1];
+          if (next.top <= card.bottom) return '';
+          const x = card.left + card.width / 2 - origin.left;
+          return `M ${x} ${card.bottom - origin.top} V ${next.top - origin.top}`;
+        }).join(' '));
+      }
     }
   };
   const schedule = () => { if (frame == null) frame = requestAnimationFrame(update); };
