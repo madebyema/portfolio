@@ -20,3 +20,11 @@
     overflow:visible; pointer-events:none; color:var(--accent);
   }
 }
+
+/* Stacked flows already have a continuous section connector; omit only the extra arrow. */
+@media (max-width:767px) {
+  :is(.tsumugi-page,.aurelia-page) .flow li:not(:last-child)::after {
+    content:none;
+    display:none;
+  }
+}
